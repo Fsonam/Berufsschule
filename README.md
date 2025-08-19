@@ -48,7 +48,6 @@ Server Manager → „Turn Windows Firewall on or off“
 3. Rolle auswählen: **Active Directory Domain Services (AD DS)**  
    → „Add Features“ bestätigen
 4. Installation starten → „Restart if required“ aktivieren
-5. Optional: Einstellungen exportieren (`DeploymentConfigTemplate.xml`)
 
 ---
 
