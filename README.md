@@ -58,7 +58,7 @@ Server Manager → „Turn Windows Firewall on or off“
    `Root Domain Name: federer.demo`
 3. Functional Level: **Windows Server 2016**
    - DNS-Server aktivieren  
-   - Wiederherstellungspasswort setzen: `Riethuesli>12345`
+   - Wiederherstellungspasswort setzen: *********
 4. Hinweis wegen „Parent Zone“ ignorieren
 5. Speicherorte belassen:  
    - `C:\Windows\NTDS`  
