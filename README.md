@@ -71,7 +71,6 @@ Server Manager → „Turn Windows Firewall on or off“
 ## ✅ Abschluss
 - Anmeldung als **Domänenadministrator**
 - Funktionsprüfung im Server Manager durchführen
-- Domänencontroller sichern (Basis für weitere Übungen)
 
 ---
 
@@ -84,5 +83,5 @@ Server Manager → „Turn Windows Firewall on or off“
 ## ✍️ Ergebnis
 Ein funktionsfähiger **Domänencontroller mit Active Directory** unter Windows Server 2019,  
 konfiguriert mit der Domäne **federer.demo**,  
-Hostname **ADSERVER-FEDERER**,  
+Hostname **ADSERVER-FEDERER-DEMO**,  
 und IP-Adresse **10.1.230.10**.
