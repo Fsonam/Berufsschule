@@ -17,14 +17,9 @@ Benutzer: Administrator
 Passwort: Riethuesli>12345
 
 
-(Bei Bedarf auf ein eigenes komplexes Passwort ändern.)
-
 🛠️ Grundkonfiguration des Servers
 🔤 1. Tastatur- & Spracheinstellungen
 
-Falls das Tastaturlayout falsch ist:
-Control Panel → Language → Deutsch (Schweiz) hinzufügen und nach oben verschieben.
-➡️ Danach VM neu starten.
 
 🌐 2. Netzwerk konfigurieren
 
