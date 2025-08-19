@@ -14,7 +14,6 @@ Am Ende steht ein lauffähiger Server mit eigener **Demodomäne**.
   Benutzer: Administrator
   Passwort: Riethuesli>12345
   ```
-  (Bei Bedarf auf ein eigenes komplexes Passwort ändern.)
 
 ---
 
