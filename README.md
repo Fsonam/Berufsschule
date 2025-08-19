@@ -75,7 +75,7 @@ Server Manager → „Turn Windows Firewall on or off“
 ---
 
 ## 📸 Screenshots (Platzhalter)
-👉 ![Mein Screenshot](./image.png)
+ ![Mein Screenshot](./image.png)
 
 
 ---
