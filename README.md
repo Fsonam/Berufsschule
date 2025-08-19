@@ -19,12 +19,7 @@ Am Ende steht ein lauffähiger Server mit eigener **Demodomäne**.
 
 ## 🛠️ Grundkonfiguration des Servers
 
-### 🔤 1. Tastatur- & Spracheinstellungen
-Falls das Tastaturlayout falsch ist:  
-`Control Panel → Language → Deutsch (Schweiz)` hinzufügen und nach oben verschieben.  
-➡️ Danach VM neu starten.
-
-### 🌐 2. Netzwerk konfigurieren
+### 🌐 1. Netzwerk konfigurieren
 - Server Manager → **Local Server**
 - Unter *Properties* bei „Ethernet“ folgende IPv4-Daten setzen:
 
@@ -37,11 +32,11 @@ Falls das Tastaturlayout falsch ist:
 
 ➡️ IPv6 deaktivieren.
 
-### 🔒 3. Firewall ausschalten
+### 🔒 2. Firewall ausschalten
 Server Manager → „Turn Windows Firewall on or off“  
 → Private & öffentliche Firewall deaktivieren.
 
-### 🏷️ 4. Servernamen ändern
+### 🏷️ 3. Servernamen ändern
 `ADSERVER-FEDERER`  
 ➡️ VM neu starten.
 
