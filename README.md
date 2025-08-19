@@ -37,7 +37,7 @@ Server Manager → „Turn Windows Firewall on or off“
 → Private & öffentliche Firewall deaktivieren.
 
 ### 🏷️ 3. Servernamen ändern
-`ADSERVER-FEDERER`  
+`ADSERVER-FEDERER-DEMO`  
 ➡️ VM neu starten.
 
 ---
