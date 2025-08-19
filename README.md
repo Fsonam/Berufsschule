@@ -21,7 +21,7 @@ Am Ende steht ein lauffähiger Server mit eigener **Demodomäne**.
 
 ### 🌐 1. Netzwerk konfigurieren
 - Server Manager → **Local Server**
-- Unter *Properties* bei „Ethernet“ folgende IPv4-Daten setzen:
+- Unter Properties bei „Ethernet“ folgende IPv4-Daten setzen:
 
 | Einstellung    | Wert          |
 |----------------|---------------|
