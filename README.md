@@ -1,99 +1,114 @@
-Auftrag M159: 1.1 Demodomäne
+🖥️ Anleitung: Installation eines Active Directory Servers
+🎯 Ziel
 
-Anleitung: Installation eines Active Directory Servers
-Ziel
+In dieser Übung wird ein Windows Server 2019 als Domänencontroller mit Active Directory aufgesetzt.
+Am Ende steht ein lauffähiger Server mit eigener Demodomäne.
 
-In dieser Übung wird ein Windows Server 2019 aufgesetzt, welcher als Domänencontroller mit Active Directory dient. Am Ende soll ein funktionsfähiger Server mit einer eigenen Demodomäne bereitstehen.
-
-1. Vorbereitung
+⚙️ Vorbereitung
 
 Virtuelle Maschine starten:
+
 Pfad: C:\VMs\WS4…
 
+
 Anmeldung mit lokalem Administrator:
+
 Benutzer: Administrator
-Passwort: Riethuesli>12345 (bei Bedarf auf ein eigenes komplexes Passwort ändern).
+Passwort: Riethuesli>12345
 
-2. Grundkonfiguration des Servers
 
-Tastatur- und Spracheinstellungen prüfen
+(Bei Bedarf auf ein eigenes komplexes Passwort ändern.)
 
-Falls das Tastaturlayout nicht korrekt ist:
+🛠️ Grundkonfiguration des Servers
+🔤 1. Tastatur- & Spracheinstellungen
+
+Falls das Tastaturlayout falsch ist:
 Control Panel → Language → Deutsch (Schweiz) hinzufügen und nach oben verschieben.
-Danach VM neu starten.
+➡️ Danach VM neu starten.
 
-IP-Adresse und Netzwerk einstellen
+🌐 2. Netzwerk konfigurieren
 
-Öffne den Server Manager → Local Server
+Server Manager → Local Server
 
-Unter Properties bei „Ethernet“ die IPv4-Einstellungen anpassen:
+Unter Properties bei „Ethernet“ folgende IPv4-Daten setzen:
 
-IP: 10.x.230.10 (x = deine Position im Alphabet)
+Einstellung	Wert
+IP-Adresse	10.1.230.10
+Subnetz	255.255.255.0
+DNS-Server	10.1.230.10
+Gateway	10.1.230.1
 
-Subnetzmaske: 255.255.255.0
+➡️ IPv6 deaktivieren.
 
-DNS-Server: 10.x.230.10
+🔒 3. Firewall ausschalten
 
-Gateway: 10.x.230.1 (vorerst irrelevant)
+Server Manager → „Turn Windows Firewall on or off“
+→ Private & öffentliche Firewall deaktivieren.
 
-IPv6 deaktivieren.
+🏷️ 4. Servernamen ändern
+Neuer Hostname: ADSERVER-FEDERER
 
-Firewall ausschalten
 
-Im Server Manager → „Turn Windows Firewall on or off“ → sowohl private als auch öffentliche Firewall deaktivieren.
+➡️ VM neu starten.
 
-Servernamen ändern
+📦 Installation der AD-Rolle
 
-Neuer Name: adserver.y.demo (y = dein Nachname).
-
-VM danach neu starten.
-
-3. Installation der AD-Rolle
-
-Server Manager öffnen → Manage → Add Roles and Features
+Server Manager → Manage → Add Roles and Features
 
 Installationstyp: Role-based or feature-based Installation
 
 Rolle auswählen: Active Directory Domain Services (AD DS)
+→ „Add Features“ bestätigen
 
-Bestätigen mit „Add Features“.
+Installation starten → „Restart if required“ aktivieren
 
-Installation starten → „Restart if required“ aktivieren.
+Optional: Einstellungen exportieren (DeploymentConfigTemplate.xml)
 
-Nach Abschluss kann die Konfiguration gespeichert werden (DeploymentConfigTemplate.xml).
+🌐 Server zum Domänencontroller hochstufen
 
-4. Server zum Domänencontroller hochstufen
-
-Im Server Manager erscheint ein Hinweis (gelbes Ausrufezeichen).
-→ Klick auf „Promote this server to a domain controller“.
+Server Manager → Gelbes Ausrufezeichen →
+Promote this server to a domain controller
 
 Neue Gesamtstruktur erstellen:
 
-Root Domain Name: y.demo (y = Nachname).
+Root Domain Name: federer.demo
 
-Functional Level: Windows Server 2016.
 
-DNS-Server aktivieren.
+Functional Level: Windows Server 2016
 
-Wiederherstellungspasswort setzen (z. B. Riethuesli>12345).
+DNS-Server aktivieren
 
-Hinweis wegen „Parent Zone“ ignorieren (gewollt).
+Wiederherstellungspasswort setzen: Riethuesli>12345
 
-Speicherorte für AD-Datenbanken auf Standard belassen:
+Hinweis wegen „Parent Zone“ ignorieren
+
+Speicherorte belassen:
 
 C:\Windows\NTDS
-
 C:\Windows\SYSVOL
 
-Voraussetzungen prüfen → „All checks passed successfully“.
-Installation starten und Server neu starten.
 
-5. Abschluss
+Voraussetzungen prüfen → „All checks passed successfully“
 
-Anmelden als Domänenadministrator.
+Installation starten & Server neu starten
 
-Funktionsprüfung im Server Manager durchführen.
+✅ Abschluss
 
-Den Domänencontroller sichern – er dient als Grundlage für spätere Übungen.
+Anmeldung als Domänenadministrator
 
-✅ Ergebnis: Ein lauffähiger Domänencontroller mit Active Directory unter Windows Server 2019, konfiguriert mit eigener Demodomäne.
+Funktionsprüfung im Server Manager durchführen
+
+Domänencontroller sichern (Basis für weitere Übungen)
+
+📸 Screenshots (Platzhalter)
+
+👉 Hier kannst du deine Screenshots einfügen, z. B. aus dem Server Manager:
+
+![Server Manager Screenshot](./screenshots/server_manager.png)
+
+✍️ Ergebnis
+
+Ein funktionsfähiger Domänencontroller mit Active Directory unter Windows Server 2019,
+konfiguriert mit der Domäne federer.demo,
+Hostname ADSERVER-FEDERER,
+und IP-Adresse 10.1.230.10.
