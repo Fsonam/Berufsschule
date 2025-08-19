@@ -12,7 +12,7 @@ Am Ende steht ein lauffähiger Server mit eigener **Demodomäne**.
 - Anmeldung mit lokalem Administrator:  
   ```
   Benutzer: Administrator
-  Passwort: Riethuesli>12345
+  Passwort: *********
   ```
 
 ---
