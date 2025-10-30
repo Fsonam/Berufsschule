@@ -5,8 +5,6 @@ Dazu musste ich:
 
 OUs per PowerShell anlegen (CreateOUs.ps1)
 
-Die gleiche Struktur später mit einer Batch-Datei replizieren (CreateOUs.bat)
-
 Einen Benutzer in einer bestimmten OU erstellen (New-ADUser)
 
 Ziel war es, eine logische Firmenstruktur nachzubauen, sodass Standorte eigene IT-Bereiche verwalten können.
