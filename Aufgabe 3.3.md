@@ -37,7 +37,7 @@ Dann habe ich einen Benutzer in folgender OU erstellt:
 
 Intern → NewYork → Informatik → Groups → Security
 
-Beispiel-Befehl:
+Mein Powershell Befehl:
 
 New-ADUser -Name "Peter Muster" `
  -GivenName "Peter" `
