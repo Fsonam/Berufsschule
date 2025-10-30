@@ -13,45 +13,23 @@ Ziel war es, eine logische Firmenstruktur nachzubauen, sodass Standorte eigene I
 
 2. Planung & OU-Struktur
 
-Bevor ich mit dem Skript begonnen habe, habe ich die OU-Struktur geplant.
+Bevor ich mit dem Skript begonnen habe, habe ich die OU-Struktur analysiert und danach umgesetzt.
 
 Foto schlussendliche AD Struktur:
 
  ![Mein Screenshot](./Screenshot.png)
 
-Die OU Server wurde ebenfalls erstellt, wie in der Aufgabe beschrieben.
-
-📎 Hier Screenshot einfügen: OU-Plan (aus PDF oder selbst gezeichnet)
-
-3. PowerShell Vorbereitung
-
-Bevor ich das Skript ausgeführt habe, musste ich sicherstellen, dass das AD-Modul geladen ist:
-
-Import-Module ActiveDirectory
-
-
-Dann habe ich geprüft, ob ich in der richtigen Domäne bin:
-
-Get-ADDomain
-
-
-📎 Screenshot: Ausgabe von Get-ADDomain
+Die OU wurde erstellt, wie in der Aufgabe beschrieben.
 
 4. PowerShell-Skript CreateOUs.ps1 ausführen
 
-Ich habe das Skript im PowerShell-ISE/VS-Code erstellt und gespeichert.
+Ich habe das Skript im PowerShell-ISE erstellt und gespeichert.
 
-Um das Skript zu starten:
-
-.\CreateOUs.ps1
-
-
-📎 Screenshot: Skript im Editor öffnen
-📎 Screenshot: Skript-Ausführung in PowerShell
+ ![Mein Screenshot](./Screenshot2.png)
 
 Nach der Ausführung habe ich kontrolliert, ob die OUs im AD sichtbar sind.
 
-📎 Screenshot: OU-Struktur im AD „Active Directory-Benutzer und -Computer“
+War erfolgreich wie im ersten Screenshot von mir zu sehen ist.
 
 5. Benutzerkonto erstellen
 
@@ -65,11 +43,9 @@ New-ADUser -Name "Peter Muster" `
  -GivenName "Peter" `
  -Surname "Muster" `
  -SamAccountName "PeterMuster" `
- -UserPrincipalName "PeterMuster@work.wondertoys.local" `
- -Path "OU=Security,OU=Groups,OU=Informatik,OU=NewYork,OU=Intern,DC=work,DC=wondertoys,DC=local" `
- -AccountPassword (ConvertTo-SecureString "Passwort123!" -AsPlainText -Force) `
- -Enabled $true
-
+ -AccountPassword (ConvertTo-SecureString "Hier habe ich das Passwort eingetragen" -AsPlainText -Force) `
+ -Enabled $true 
+ -Path "OU=Security,OU=Groups,OU=Informatik,OU=NewYork,OU=Intern,DC=work,DC=wondertoys,DC=local" 
 
 📎 Screenshot: Benutzer im AD sichtbar
 
