@@ -17,7 +17,7 @@ Bevor ich mit dem Skript begonnen habe, habe ich die OU-Struktur geplant.
 
 Foto schlussendliche AD Struktur:
 
-(Screenshot Ad Struktur.png)
+ ![Mein Screenshot](./Screenshot.png)
 
 Die OU Server wurde ebenfalls erstellt, wie in der Aufgabe beschrieben.
 
