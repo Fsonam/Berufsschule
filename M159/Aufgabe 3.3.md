@@ -17,6 +17,8 @@ Foto schlussendliche AD Struktur:
 
  ![Mein Screenshot](Bilder/Screenshot.png)
 
+ 
+
 Die OU wurde erstellt, wie in der Aufgabe beschrieben.
 
 4. PowerShell-Skript CreateOUs.ps1 ausführen
