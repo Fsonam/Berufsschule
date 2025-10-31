@@ -15,7 +15,7 @@ Bevor ich mit dem Skript begonnen habe, habe ich die OU-Struktur analysiert und 
 
 Foto schlussendliche AD Struktur:
 
- ![Mein Screenshot](./Screenshot.png)
+ ![Mein Screenshot](Bilder/Screenshot.png)
 
 Die OU wurde erstellt, wie in der Aufgabe beschrieben.
 
