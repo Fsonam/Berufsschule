@@ -40,7 +40,7 @@ Mein Powershell Befehl:
 New-ADUser -Name "Peter Muster" `
  -GivenName "Peter" `
  -Surname "Muster" `
- -SamAccountName "PeterMuster" `
+ -SamAccountName "pmuster" `
  -AccountPassword (ConvertTo-SecureString "Hier habe ich das Passwort eingetragen" -AsPlainText -Force) `
  -Enabled $true 
  -Path "OU=Security,OU=Groups,OU=Informatik,OU=NewYork,OU=Intern,DC=work,DC=wondertoys,DC=local" 
