@@ -47,7 +47,7 @@ New-ADUser -Name "Peter Muster" `
  -Enabled $true 
  -Path "OU=Security,OU=Groups,OU=Informatik,OU=NewYork,OU=Intern,DC=work,DC=wondertoys,DC=local" 
 
-📎 Screenshot: ![Mein Screenshot](../Screenshot3.png)
+📎 Screenshot: ![Mein Screenshot](../Bilder/Screenshot3.png)
 
 6. Ergebnis
 
