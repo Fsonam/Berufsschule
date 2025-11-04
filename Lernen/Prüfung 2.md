@@ -1,162 +1,145 @@
+# 📘 Lernziele – Schriftlicher Teil: Active Directory & DNS
 
-📘 Lernziele – Schriftlicher Teil
-1️⃣ Domänenmodell
-→ Sie kennen die grafische Darstellung von Domänen und erklären die Eigenschaften (Sicherheitsgrenzen, Schutzschema, DC-Empfehlungen, Replikation, DC, RODC).
+## 🧩 1. Domänenmodell
 
-Antwort:
+### 🎯 Lernziel
+> Sie kennen die grafische Darstellung von Domänen und erklären die Eigenschaften (Sicherheitsgrenzen, Schutzschema, DC-Empfehlungen, Replikation, DC, RODC).
 
-Eine Domäne ist die logische Verwaltungseinheit im Active Directory.
+### 🧠 Erklärung
+Eine **Domäne** ist die **logische Verwaltungseinheit** im Active Directory.  
 Sie enthält Benutzer, Gruppen, Computer und Richtlinien.
 
-Sicherheitsgrenze:
+### 🔐 Sicherheitsgrenzen
+- Eine Domäne bildet eine **Sicherheitsgrenze**.  
+- Benutzer und Gruppen sind **nur innerhalb dieser Domäne** gültig.  
+- Zugriff auf andere Domänen nur über **Trusts (Vertrauensstellungen)** möglich.  
+- Passwortrichtlinien und Sicherheitsrichtlinien gelten domänenweit.
 
-Jede Domäne ist eine eigene Sicherheitsgrenze.
+### 🧱 Schutzschema
+- Jede Domäne kann eigene **Administratoren und Richtlinien** haben.  
+- Trennung von Verantwortlichkeiten schützt vor Fehlkonfigurationen.  
+- Sicherheitskontext gilt nur innerhalb der jeweiligen Domäne.
 
-Benutzer und Gruppen können nur innerhalb dieser Domäne direkt verwaltet werden.
+### 🖥️ Domain Controller (DC) Empfehlungen
+- **Mindestens zwei DCs** pro Domäne (Redundanz).  
+- DCs auf **verschiedenen Hosts oder Standorten** betreiben.  
+- Keine Alltagsarbeiten direkt auf DCs (nur Administration).
 
-Zugriff auf andere Domänen ist nur über Trusts (Vertrauensstellungen) möglich.
+### 🔁 Replikation
+- Änderungen (z. B. neue Benutzer) werden **automatisch zwischen DCs repliziert**.  
+- Replikation ist **bidirektional** und wird über den **KCC (Knowledge Consistency Checker)** gesteuert.  
+- AD-Datenbank bleibt auf allen DCs synchron.
 
-Schutzschema:
+### 🧩 RODC (Read-Only Domain Controller)
+- **Schreibgeschützte Kopie** der AD-Datenbank.  
+- Einsatz in **unsicheren oder entfernten Standorten** (z. B. Filialen).  
+- Vorteile:
+  - Keine Änderungen lokal möglich  
+  - Höhere Sicherheit bei Diebstahl  
+  - Weniger Replikationslast
 
-Jede Domäne kann eigene Administratoren und Richtlinien haben.
+---
 
-Sicherheitsrichtlinien gelten domänenweit.
+## 🧩 2. Organizational Unit (OU)
 
-Schutz vor Fehlkonfigurationen durch Trennung der Verwaltung.
+### 🎯 Lernziel
+> Welche Strukturierungsmöglichkeiten bietet die OU.  
+> Nennen Sie Praxisbeispiele zu den Themen «Abbilden der Firmenstruktur», «Verwaltungstätigkeiten», «Gruppenrichtlinien» und «Sichtbarkeit».
 
-DC-Empfehlungen (Domain Controller):
+### 🧠 Erklärung
+Eine **OU (Organizational Unit)** dient zur **logischen Strukturierung von AD-Objekten** innerhalb einer Domäne.
 
-Mindestens zwei DCs pro Domäne für Ausfallsicherheit.
+### 🏢 Abbilden der Firmenstruktur
+Beispielhafte OU-Struktur:
 
-DCs sollten auf verschiedenen Hosts oder Standorten laufen.
+➡️ Jede Abteilung oder jeder Standort kann separat verwaltet werden.
 
-Keine Benutzerarbeiten direkt auf DCs durchführen.
+### ⚙️ Verwaltungstätigkeiten
+- Verwaltung kann **delegiert** werden.  
+- Beispiel: IT-Leiter Zürich darf nur Benutzer in `OU=Zürich` verwalten.  
+- Delegation erlaubt **feingranulare Rechtevergabe**.
 
-Replikation:
+### 🧭 Gruppenrichtlinien (GPOs)
+- **GPOs** können direkt auf OUs angewendet werden.  
+- Beispiel:  
+  - `OU=Schule` → GPO: „USB-Ports deaktivieren“.  
+- Alle Benutzer/Computer in der OU erben die Richtlinie.
 
-Änderungen im AD werden automatisch zwischen allen DCs repliziert.
+### 👁️ Sichtbarkeit
+- Benutzer und Admins sehen nur Objekte, für die sie Berechtigungen besitzen.  
+- Erhöht Übersichtlichkeit und Sicherheit.
 
-Replikation ist mehrstufig und bidirektional.
+### ⚠️ Wichtig
+> Eine **OU ist keine Sicherheitsgrenze**, sondern eine **Verwaltungsgrenze**!
 
-Verwaltung über den Knowledge Consistency Checker (KCC).
+---
 
-RODC (Read-Only Domain Controller):
+## 🧩 3. Strukturtypen von Active Directory
 
-Ein DC mit schreibgeschützter AD-Datenbank.
+### 🎯 Lernziel
+> Sie kennen die Unterschiede zwischen Einzeldomäne, Domänenstruktur (Tree), Gesamtstruktur (Forest) und Mehrgesamtstruktur (Multi-Forest).
 
-Wird in unsicheren Standorten (z. B. Filialen) eingesetzt.
+### 🧱 Vergleichstabelle
 
-Nur lokale Authentifizierungsdaten werden gespeichert.
+| Strukturtyp | Beschreibung | Beispiel | Besonderheiten |
+|--------------|--------------|-----------|----------------|
+| **Einzeldomäne** | Eine einzige Domäne verwaltet alle Objekte. | `wondertoys.local` | Einfachste Struktur, zentral verwaltet. |
+| **Domänenstruktur (Tree)** | Mehrere Domänen mit gemeinsamer Namenshierarchie. | `wondertoys.local`, `work.wondertoys.local` | Gemeinsame DNS-Basis, automatische Trusts. |
+| **Gesamtstruktur (Forest)** | Sammlung von Domänen mit gemeinsamer AD-Datenbank, Schema & Global Catalog. | `wondertoys.local` + `sales.wondertoys.local` | Gemeinsame Richtlinien, geteilte Ressourcen. |
+| **Mehrgesamtstruktur (Multi-Forest)** | Mehrere unabhängige Forests. | `wondertoys.local` + `contoso.com` | Keine automatische Vertrauensstellung; bei Fusionen üblich. |
 
-Keine Änderungen am AD möglich → mehr Sicherheit.
+### 💡 Merksatz
+> **Tree = gemeinsame DNS-Hierarchie**  
+> **Forest = gemeinsame AD-Datenbank und Schema**  
+> **Multi-Forest = komplett getrennte Systeme**
 
-2️⃣ Organisational Unit (OU)
-→ Welche Strukturierungsmöglichkeiten bietet die OU. Nennen Sie Praxisbeispiele zu den Themen «Abbilden der Firmenstruktur», «Verwaltungstätigkeiten», «Gruppenrichtlinien» und «Sichtbarkeit».
+---
 
-Antwort:
+## 🧩 4. Unterschiedliche Sichtweisen
 
-Eine OU (Organizational Unit) dient zur logischen Strukturierung von Objekten innerhalb einer Domäne.
+### 🎯 Lernziel
+> Die Lernenden kennen die Darstellungsform und Aufgaben von der logischen sowie physischen Sicht.
 
-Abbilden der Firmenstruktur:
+### 🧠 Erklärung
 
-Beispiel: OU=Zentrale, OU=Filiale, OU=IT, OU=Marketing.
+| Sichtweise | Beschreibung | Typische Elemente | Zweck |
+|-------------|--------------|------------------|--------|
+| **Logische Sicht** | Zeigt die **Verwaltungsstruktur** des AD. | Domänen, OUs, Benutzer, Gruppen, GPOs | Dient der Organisation und Verwaltung. |
+| **Physische Sicht** | Zeigt die **Netzwerktopologie und Replikation**. | Standorte (Sites), Subnetze, Replikationsverbindungen | Optimiert Datenverkehr und Replikationswege. |
 
-Damit kann man die Unternehmensstruktur direkt im AD darstellen.
+### 🏗️ Beispiele
 
-Verwaltungstätigkeiten:
+**Logische Sicht:**
+→ Spiegelt die **Organisationsstruktur** wider.
 
-Verwaltung kann delegiert werden.
+**Physische Sicht:**
+→ Replikation über WAN, zeigt **tatsächliche Netzwerkstruktur**.
 
-Beispiel: IT-Leiter Zürich darf nur Benutzer in der OU=Zürich verwalten.
+### 🔍 Unterschied
 
-Gruppenrichtlinien (GPOs):
+| Vergleich | Logische Sicht | Physische Sicht |
+|------------|----------------|----------------|
+| **Fokus** | Verwaltung | Netzwerk & Replikation |
+| **Zweck** | Strukturierung von Objekten | Optimierung von Datenverkehr |
+| **Beispiel** | OU=Marketing | Standort=Zürich |
 
-GPOs können gezielt auf OUs angewendet werden.
+### ✅ Ziel
+> Logische Struktur = Abbildung der Organisation  
+> Physische Struktur = Optimierung der Replikation im Netzwerk
 
-Beispiel: OU=Schule → GPO „USB-Ports deaktivieren“.
+---
 
-Alle Benutzer/Computer in dieser OU erben die Richtlinie.
+## 🧾 Zusammenfassung
 
-Sichtbarkeit:
+| Thema | Kurz erklärt |
+|--------|---------------|
+| **Domäne** | Sicherheitsgrenze im AD, gemeinsame Richtlinien & Authentifizierung. |
+| **OU** | Verwaltungseinheit zur logischen Strukturierung, Delegation & GPO-Steuerung. |
+| **Tree / Forest / Multi-Forest** | Verschiedene Hierarchieebenen und Vertrauensbeziehungen. |
+| **Logisch / Physisch** | Logisch = Organisation, Physisch = Netzwerk & Replikation. |
 
-Benutzer oder Administratoren sehen nur die Objekte,
-für die sie Berechtigungen haben.
+---
 
-Dadurch wird die Verwaltung übersichtlicher und sicherer.
-
-Wichtig:
-
-Eine OU ist keine Sicherheitsgrenze, sondern eine Verwaltungsgrenze.
-
-3️⃣ Unterschiede zwischen Einzeldomäne, Domänenstruktur (Tree), Gesamtstruktur (Forest) und Mehrgesamtstruktur (Multi-Forest)
-
-Antwort:
-
-Strukturtyp	Beschreibung	Beispiel	Besonderheiten
-Einzeldomäne	Eine einzelne Domäne verwaltet alle Objekte.	wondertoys.local	Einfach, zentral, keine Trusts nötig.
-Domänenstruktur (Tree)	Mehrere Domänen mit gemeinsamer Namenshierarchie.	wondertoys.local, work.wondertoys.local	Automatische Vertrauensstellung, gemeinsame DNS-Basis.
-Gesamtstruktur (Forest)	Sammlung von Domänen mit gemeinsamem AD-Schema und Global Catalog.	wondertoys.local + sales.wondertoys.local	Gemeinsame Richtlinien, aber unterschiedliche Domänen.
-Mehrgesamtstruktur (Multi-Forest)	Mehrere unabhängige Forests mit eigenen Schemata.	wondertoys.local + contoso.com	Keine automatische Vertrauensstellung, z. B. bei Firmenfusionen.
-
-Forest = oberste Verwaltungsebene im AD.
-
-Alle Domänen in einem Forest teilen:
-
-Schema, Global Catalog, Trusts und Replikation.
-
-4️⃣ Unterschiedliche Sichtweisen
-→ Die Lernenden kennen die Darstellungsform und Aufgaben von der logischen sowie physischen Sicht.
-
-Antwort:
-
-Logische Sicht:
-
-Zeigt die Verwaltungsstruktur des AD.
-
-Enthält Domänen, OUs, Benutzer, Gruppen und Gruppenrichtlinien.
-
-Dient der Organisation und Verwaltung von Ressourcen.
-
-Beispiel:
-
-OU=IT
-
-OU=Finanzen
-
-OU=Schule
-→ Jede Abteilung ist logisch abgebildet.
-
-Physische Sicht:
-
-Zeigt die Netzwerktopologie und Replikationsstruktur.
-
-Enthält Sites (Standorte) und Subnetze.
-
-Steuert, wie und wann Daten zwischen DCs repliziert werden.
-
-Beispiel:
-
-Standort Zürich (DC01)
-
-Standort Bern (DC02)
-
-Replikation über WAN.
-
-Unterschied:
-
-Logisch = Organisation & Verwaltung
-
-Physisch = Netzwerk & Replikation
-
-Ziel:
-
-Logische Struktur spiegelt die Firma wider.
-
-Physische Struktur optimiert Datenverkehr und Geschwindigkeit.
-
-✅ Zusammenfassung (Kurzüberblick)
-Lernziel	Kurz erklärt
-Domänenmodell	Domäne = Sicherheitsgrenze mit eigenen DCs, Replikation und Schutzmechanismen.
-OU-Struktur	Verwaltungseinheit für logische Ordnung, Delegation und GPOs.
-Tree / Forest / Multi-Forest	Verschiedene Hierarchieebenen und Trust-Beziehungen im AD.
-Logisch / Physisch	Logisch = Verwaltung; Physisch = Standort und Replikation.
+💡 **Tipp zum Lernen:**  
+Lies jedes Lernziel laut vor und erkläre es in deinen eigenen Worten –  
+so merkst du dir die Begriffe schneller und verstehst die Zusammenhänge wirklich.
