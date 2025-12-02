@@ -25,7 +25,7 @@ Die OU wurde erstellt, wie in der Aufgabe beschrieben.
 
 Ich habe das Skript im PowerShell-ISE erstellt und gespeichert.
 
- ![Mein Screenshot](../Bilder/M159/Screenshot2.png)
+ ![Mein Screenshot](../../Bilder/M159/Screenshot2.png)
 
 Nach der Ausführung habe ich kontrolliert, ob die OUs im AD sichtbar sind.
 
@@ -47,7 +47,7 @@ New-ADUser -Name "Peter Muster" `
  -Enabled $true 
  -Path "OU=Security,OU=Groups,OU=Informatik,OU=NewYork,OU=Intern,DC=work,DC=wondertoys,DC=local" 
 
-📎 Screenshot: ![Mein Screenshot](../Bilder/Screenshot3.png)
+📎 Screenshot: ![Mein Screenshot](../../Bilder/Screenshot3.png)
 
 6. Ergebnis
 
