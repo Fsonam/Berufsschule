@@ -1,102 +1,90 @@
-# Anleitung: LDAP – Active Directory Datenstrukturen verwalten
+# Anleitung: LDAP – Datenstrukturen verwalten
 
 ## Zielsetzung
 
-* Benutzer über LDAP finden
-* Distinguished Names bestimmen
-* Attribute ändern
-* Gruppenmitgliedschaften verwalten
-* LDAP-Diagnose durchführen
-* Externe LDAP-Tools nutzen
+1. Benutzer via LDAP finden
+2. DN bestimmen
+3. Attribute ändern
+4. Gruppenmitgliedschaften verwalten
+5. LDAP-Diagnose ausführen
+6. Externen LDAP-Client verwenden
 
 ---
 
-## Vorbereitung
+## 1. Vorbereitung
 
-* Verbindung zum Domain Controller sicherstellen
-* LDAP-Tool (z. B. Softerra LDAP Browser) installieren
-* Neustart durchführen
+1. Softerra LDAP installieren
+2. Neustarten
+3. Verbindung zum DC sicherstellen
 
 ---
 
-## Benutzer suchen & DN bestimmen
+## 2. Benutzer suchen & DN bestimmen
 
-Beispiel: Hans Müller
-
-AD-Pfad:
-work.wondertoys.local/Intern/Houston/Informatik/Users/Hans Müller
-
-Distinguished Name:
+1. Benutzer im AD suchen
+2. Pfad prüfen:
+   work.wondertoys.local/Intern/Houston/Informatik/Users/Hans Müller
+3. DN bestimmen:
 
 CN=Hans Müller,OU=Users,OU=Informatik,OU=Houston,OU=Intern,DC=work,DC=wondertoys,DC=local
 
 ---
 
-## LDAP-Suche durchführen
+## 3. LDAP-Suche durchführen
 
-Beispiel-Suchfilter:
-
-Eva*
-
-Ergebnis:
-* zeigt alle Benutzer, deren Name mit „Eva“ beginnt
+1. LDAP-Browser öffnen
+2. Suche ausführen:
+   Eva*
+3. Resultate kontrollieren
 
 ---
 
-## LDAP-Attribute ändern
+## 4. Attribute ändern
 
-Beispiel: Autokennzeichen (carLicense) setzen
-
-Neuer Wert:
-
-SG 123 456
-
-* Attribut bearbeiten
-* Speichern
-* Im AD kontrollieren (Attribute Editor)
+1. Benutzer öffnen
+2. "Show empty attributes" aktivieren
+3. Attribut bearbeiten:
+   carLicense → SG 123 456
+4. Änderungen speichern
+5. Im AD überprüfen
 
 ---
 
-## Gruppenmitgliedschaft ändern
+## 5. Gruppenmitgliedschaften verwalten
 
-Beispiel: Eva soll Mitglied von „Backup Operators“ werden
-
-Vorgehen:
-
-* Benutzerobjekt öffnen
-* Tab: Member Of
-* Gruppe hinzufügen
-* Speichern
-* Kontrolle im AD
+1. Benutzer öffnen
+2. Tab „Member Of“
+3. Gruppe hinzufügen:
+   Backup Operators
+4. Speichern
+5. Kontrolle im AD
 
 ---
 
-## LDAP-Diagnose überwachen
+## 6. LDAP-Diagnose
 
-Pfad:
-
-Computer Management → Performance → Data Collector Sets → System → Active Directory Diagnostics
-
-Bericht abrufen unter:
-
-Reports → System → Active Directory Diagnostics
-
----
-
-## LDAP von externem Client testen
-
-* Externe VM starten
-* LDAP-Browser starten
-* Mit Domain Controller verbinden:
-
-ldap://work.wondertoys.local
+1. Computer Management öffnen
+2. Performance
+3. Data Collector Sets → System
+4. Active Directory Diagnostics starten
+5. Bericht lesen unter:
+   Reports/System/Active Directory Diagnostics
 
 ---
 
-## Kontrolle
+## 7. Externe LDAP-Verbindung testen
 
-* DN korrekt bestimmt
-* Attribute erfolgreich geändert
-* Gruppenmitgliedschaften korrekt gesetzt
-* LDAP-Diagnose erstellt
-* Externer LDAP-Zugriff erfolgreich
+1. VM starten
+2. LDAP-Browser öffnen
+3. Verbinden mit:
+   ldap://work.wondertoys.local
+
+---
+
+## 8. Kontrolle
+
+1. DN korrekt bestimmt
+2. Attribute geändert
+3. Gruppen korrekt gesetzt
+4. Diagnose erstellt
+5. Externer LDAP-Zugriff erfolgreich
