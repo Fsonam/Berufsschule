@@ -15,7 +15,7 @@ Bevor ich mit dem Skript begonnen habe, habe ich die OU-Struktur analysiert und 
 
 Foto schlussendliche AD Struktur:
 
-![Mein Screenshot](..M159/Bilder/Screenshot.png)
+![Mein Screenshot](../Bilder/Screenshot.png)
 
  
 
@@ -25,7 +25,7 @@ Die OU wurde erstellt, wie in der Aufgabe beschrieben.
 
 Ich habe das Skript im PowerShell-ISE erstellt und gespeichert.
 
- ![Mein Screenshot](../M159/Bilder/Screenshot2.png)
+ ![Mein Screenshot](../Bilder/M159/Screenshot2.png)
 
 Nach der Ausführung habe ich kontrolliert, ob die OUs im AD sichtbar sind.
 
