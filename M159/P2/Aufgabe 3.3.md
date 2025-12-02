@@ -25,7 +25,7 @@ Die OU wurde erstellt, wie in der Aufgabe beschrieben.
 
 Ich habe das Skript im PowerShell-ISE erstellt und gespeichert.
 
- ![Mein Screenshot](../../Bilder/M159/Screenshot2.png)
+ ![Mein Screenshot](../../Bilder/Screenshot2.png)
 
 Nach der Ausführung habe ich kontrolliert, ob die OUs im AD sichtbar sind.
 
