@@ -2,18 +2,16 @@
 
 ## Zielsetzung
 
-Einrichten einer funktionsfähigen Domänenumgebung:
-
-* Integration eines Clients und eines Memberservers
-* Anlegen von Benutzern gemäss Namenskonzept
-* Einrichten von Homes und Profiles
-* Umsetzung eines rollenbasierten Rechtekonzepts (AGDLP)
-* Standortbezogene Ressourcenverzeichnisse
-* Testen und Dokumentieren der Resultate
+1. Integration eines Clients und eines Memberservers
+2. Anlegen von Benutzern gemäss Namenskonzept
+3. Einrichten von Homes und Profiles
+4. Umsetzung eines rollenbasierten Rechtekonzepts (AGDLP)
+5. Standortbezogene Ressourcenverzeichnisse einrichten
+6. Tests und Kontrolle
 
 ---
 
-## IP-Konzept
+## 1. IP-Konzept
 
 Beispielzuteilung (gemäss Übung):
 
@@ -24,127 +22,113 @@ Beispielzuteilung (gemäss Übung):
 
 ---
 
-## Namenskonzept
+## 2. Namenskonzept
 
-6-stellige Rechnernamen:
-
-* NYX1CL0001 → Client New York
-* NYW9DB01 → Memberserver
-
-Benutzernamen:
-
-* Hans Müller → hamue_ho_inf
-* Eva Muster → evmus_ny_inf
+1. NYX1CL0001 → Client New York
+2. NYW9DB01 → Memberserver
+3. Benutzer:
+   * Hans Müller → hamue_ho_inf
+   * Eva Muster → evmus_ny_inf
 
 ---
 
-## Vorbereitung
+## 3. Vorbereitung
 
-* IPv4 konfigurieren
-* DNS eintragen
-* Rechnername setzen
-* Netzwerk prüfen (ping)
-* OU-Struktur vorbereiten
-
----
-
-## NYX1CL0001 – Client in Domäne aufnehmen
-
-* IP konfigurieren
-* Rechnername setzen
-* Neustart
-* Domänenbeitritt:
-
-work.wondertoys.local
-
-Danach:
-
-* Client erscheint unter "Computers"
-* In die passende OU verschieben
+1. IPv4 konfigurieren
+2. DNS eintragen
+3. Rechnername setzen
+4. Netzwerk prüfen (ping)
+5. OU-Struktur vorbereiten
 
 ---
 
-## Benutzer erstellen
+## 4. Client NYX1CL0001 in Domäne aufnehmen
 
-| Benutzer     | OU                                   | Logon-Name     |
-|--------------|----------------------------------------|----------------|
-| Hans Müller  | Intern/Houston/Informatik/Users        | hamue_ho_inf   |
-| Eva Muster   | Intern/NewYork/Informatik/Users        | evmus_ny_inf   |
-
-* Passwort setzen
-* Passwortwechsel deaktivieren
+1. IP konfigurieren
+2. Rechnername setzen
+3. Neustarten
+4. Domänenbeitritt ausführen:
+   work.wondertoys.local
+5. Client erscheint unter "Computers"
+6. In korrekte OU verschieben
 
 ---
 
-## Serverordner für Homes & Profiles
+## 5. Benutzer erstellen
 
-### Ordnerstruktur:
+| Nr. | Benutzer     | OU                                   | Logon-Name     |
+|-----|--------------|----------------------------------------|----------------|
+| 1   | Hans Müller  | Intern/Houston/Informatik/Users        | hamue_ho_inf   |
+| 2   | Eva Muster   | Intern/NewYork/Informatik/Users        | evmus_ny_inf   |
 
-F:\Shared\Homes  
-F:\Shared\Profiles
+1. Passwort setzen
+2. Passwortwechsel bei Login deaktivieren
 
-### Freigaben:
+---
+
+## 6. Homes & Profiles einrichten
+
+### 6.1 Ordnerstruktur
+
+1. F:\Shared\Homes erstellen
+2. F:\Shared\Profiles erstellen
+
+### 6.2 Freigaben
 
 | Ordner   | Share     | Rechte          |
 |----------|-----------|------------------|
 | Homes    | Homes$    | Everyone: Full   |
 | Profiles | Profiles$ | Everyone: Full   |
 
-### NTFS-Rechte:
+### 6.3 NTFS-Rechte
 
-Homes:
-* Administratoren → Full Control
-* Vererbung deaktivieren
+**Homes:**
+1. Administratoren → Full Control
+2. Vererbung deaktivieren
 
-Profiles:
-* Administratoren → Full Control
-* Users → Read & Execute
+**Profiles:**
+1. Administratoren → Full Control
+2. Users → Read & Execute
 
----
+### 6.4 Benutzer konfigurieren
 
-## Benutzer konfigurieren
-
-Home Folder:
-H: → \\Server\Homes$\%username%
-
-Roaming Profile:
-\\Server\Profiles$\%username%
-
-Der Home-Ordner wird beim Speichern erstellt.  
-Der Profilordner wird beim ersten Login erzeugt.
+1. Home-Drive:
+   H: → \\Server\Homes$\%username%
+2. Profilpfad:
+   \\Server\Profiles$\%username%
 
 ---
 
-## Tests (NYX1CL0001)
+## 7. Tests (NYX1CL0001)
 
-* Datei auf H:\ speichern
-* Hintergrund ändern
-* Desktop-Symbole ändern
-* Abmelden → Anmelden
-* Einstellungen müssen übernommen werden
+1. Datei in H:\ speichern
+2. Hintergrund ändern
+3. Desktop-Symbole ändern
+4. Abmelden → anmelden
+5. Prüfen, ob Einstellungen übernommen wurden
 
 ---
 
-## Standortverzeichnisse
+## 8. Standortverzeichnisse (Houston / New York)
 
-Ordnerstruktur:
+### 8.1 Ordnerstruktur
 
-F:\Shared\Sites\Houston  
-F:\Shared\Sites\NewYork
+1. F:\Shared\Sites\Houston
+2. F:\Shared\Sites\NewYork
 
-### Globale Gruppen (G):
+### 8.2 Globale Gruppen (G)
 
-* HO_INF_AllUsers_G
-* HO_BUC_AllUsers_G
-* NY_INF_AllUsers_G
-* NY_BUC_AllUsers_G
+1. HO_INF_AllUsers_G
+2. HO_BUC_AllUsers_G
+3. NY_INF_AllUsers_G
+4. NY_BUC_AllUsers_G
 
-### Domänenlokale Gruppen (DL):
+### 8.3 Domänenlokale Gruppen (DL)
 
-* ACL_HOFolders_Edit_L
-* ACL_NYFolders_Edit_L
+1. ACL_HOFolders_Edit_L
+2. ACL_NYFolders_Edit_L
 
-### NTFS-Rechte:
+### 8.4 NTFS-Rechte
 
 | Ordner  | Gruppe                | Recht  |
 |---------|------------------------|--------|
@@ -153,22 +137,22 @@ F:\Shared\Sites\NewYork
 
 ---
 
-## Memberserver einbinden (NYW9DB01)
+## 9. Memberserver NYW9DB01 in Domäne aufnehmen
 
-* Firewall deaktivieren
-* IPv4 setzen
-* Name setzen: NYW9DB01
-* Neustart
-* Domänenbeitritt:
-
-work.wondertoys.local
+1. Firewall deaktivieren
+2. IPv4 setzen
+3. Rechnername setzen: NYW9DB01
+4. Neustart
+5. Domänenbeitritt:
+   work.wondertoys.local
 
 ---
 
-## Kontrolle
+## 10. Kontrolle
 
-* Benutzerprofile laden korrekt
-* H:\ und S:\ (Standortlaufwerk) sichtbar
-* Kein Zugriff auf andere Standorte
-* Memberserver sichtbar im AD
-* Homes & Profiles funktionieren
+1. Benutzerprofile laden korrekt
+2. H:\ sichtbar
+3. S:\ (Standortlaufwerk) sichtbar
+4. Kein Zugriff auf andere Standorte
+5. Memberserver sichtbar im AD
+6. Homes & Profiles funktionieren
