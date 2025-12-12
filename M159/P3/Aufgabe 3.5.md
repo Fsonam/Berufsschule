@@ -105,7 +105,7 @@ ping 10.0.1.1
 ping 10.0.0.24
 
 
-## Schritt 3: AD-Standorte und Subnetze erstellen
+**## Schritt 3: AD-Standorte und Subnetze erstellen**
 
 ### Auf WS4
 - Anmeldung als `wondertoys.local\Administrator`
