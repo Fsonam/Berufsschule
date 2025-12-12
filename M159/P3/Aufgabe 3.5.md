@@ -100,7 +100,7 @@ Danach den RAS-Dienst neu starten.
 - DNS-Server: `10.0.1.25`
 
 ### Verbindung testen
-```bash
+``bash
 ping 10.0.1.1
 ping 10.0.0.24
 
@@ -174,7 +174,7 @@ ping 10.0.0.24
 ## Schritt 7: DNS-Funktion testen
 
 Auf allen Servern:
-```bash
+``bash
 ipconfig
 nslookup
 
